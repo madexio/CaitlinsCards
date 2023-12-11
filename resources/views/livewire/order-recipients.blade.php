@@ -1,3 +1,5 @@
 <div>
-    {{-- Nothing in the world is as soft and yielding as water. --}}
+    <div class="text-2xl font-bold text-red-700">
+        Recipients
+    </div>
 </div>

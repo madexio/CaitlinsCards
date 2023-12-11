@@ -20,6 +20,6 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', Welcome::class);
 
 //order stuff
-Route::get('/order/entry', OrderEntry::class);
-Route::get('/order/recipients', OrderRecipients::class);
-Route::get('/order/summary', OrderSummary::class);
+Route::get('/order/entry', OrderEntry::class)->name("order.entry");
+Route::get('/order/recipients', OrderRecipients::class)->name("order.recipients");
+Route::get('/order/summary', OrderSummary::class)->name("order.summary");
