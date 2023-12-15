@@ -1,9 +1,16 @@
 <div class="h-screen" xmlns:x-on="http://www.w3.org/1999/xhtml">
     <div class="h-full w-40 flex-col bg-green-800 text-white text-xl"
          x-data="{
-                    show: {{in_array(Route::currentRouteName(), ['order.entry', 'order.recipients', 'order.summary']) ?: 'false', 'true'}},
+                    show: {{in_array(Route::currentRouteName(), ['order.entry', 'order.recipients', 'order.summary']) ?: 'false', 'true'}}
 
                  }">
+        <div class="flex space-x-2 hover:bg-green-900 hover:cursor-pointer select-none px-2">
+            <a href="{{route('welcome')}}">
+                <div>
+                    Welcome
+                </div>
+            </a>
+        </div>
         <div class="flex space-x-2 hover:bg-green-900 hover:cursor-pointer select-none px-2" x-on:click="show = !show">
             <div>
                 Order
@@ -21,22 +28,21 @@
                       clip-rule="evenodd"/>
             </svg>
         </div>
-        <a href="{{route('order.entry')}}">
+        <a x-cloak href="{{route('order.entry')}}">
             <div class="px-4 hover:bg-green-900 hover:cursor-pointer select-none @if(Route::currentRouteName() === "order.entry") bg-green-900 @endif"
                  x-show="show">
                 Entry
             </div>
         </a>
-        <a href="{{route('order.recipients')}}">
+        <a x-cloak href="{{route('order.recipients')}}">
             <div class="px-4 hover:bg-green-900 hover:cursor-pointer select-none @if(Route::currentRouteName() === "order.recipients") bg-green-900 @endif"
                  x-show="show">
                 Recipients
             </div>
         </a>
-        <a href="{{route('order.summary')}}">
+        <a x-cloak href="{{route('order.summary')}}">
             <div class="px-4 hover:bg-green-900 hover:cursor-pointer select-none @if(Route::currentRouteName() === "order.summary") bg-green-900 @endif"
                  x-show="show">
-
                 Summary
             </div>
         </a>

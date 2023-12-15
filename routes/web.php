@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', Welcome::class);
+Route::get('/', Welcome::class)->name('welcome');
 
 //order stuff
 Route::get('/order/entry', OrderEntry::class)->name("order.entry");
