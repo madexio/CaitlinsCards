@@ -1,5 +1,6 @@
 <?php
 
+use App\Livewire\CustomerDetails;
 use App\Livewire\OrderEntry;
 use App\Livewire\OrderRecipients;
 use App\Livewire\OrderSummary;
@@ -23,3 +24,4 @@ Route::get('/', Welcome::class)->name('welcome');
 Route::get('/order/entry', OrderEntry::class)->name("order.entry");
 Route::get('/order/recipients', OrderRecipients::class)->name("order.recipients");
 Route::get('/order/summary', OrderSummary::class)->name("order.summary");
+Route::get('/customer/details', CustomerDetails::class)->name("customer.details");

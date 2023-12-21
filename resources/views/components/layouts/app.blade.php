@@ -10,8 +10,17 @@
 </head>
 
 
-<body class="flex ">
-    <x-banner/>
-    {{ $slot }}
+<body>
+<div class="flex">
+    <div class="w-[15%]">
+        <x-banner/>
+    </div>
+    <div class="w-[85%]">
+
+        {{ $slot }}
+    </div>
+</div>
+
+
 </body>
 </html>
