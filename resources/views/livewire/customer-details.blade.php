@@ -17,6 +17,11 @@
                     </div>
                 @endforeach
             </div>
+            @if($customer_updated)
+                <div class="flex justify-center p-2 text-sm text-green-700">
+                    Customer Updated
+                </div>
+            @endif
             <div class="text-xl mt-4 divide-y-2">
                 <div class="flex justify-between py-2">
                     <div>
@@ -25,41 +30,39 @@
                 </div>
                 <div class="flex justify-between py-2">
                     <div>
-                        Customer name: {{$current_customer?->name}}
+                        Customer name:
                     </div>
                     <label>
-                        <input class="border border-gray-500 rounded ml-4" type="text"
-                               wire:model.live="customer_name">
+                        <input class="border border-gray-500 rounded ml-4 p-1 w-96" type="text"
+                               wire:model.live="customer_name" value="{{$current_customer?->name}}">
                     </label>
                 </div>
                 <div class="flex justify-between py-2">
                     <div>
-                        Home phone: {{$current_customer?->homePhone}}
+                        Home phone:
                     </div>
                     <label>
-                        <input class="border border-gray-500 rounded ml-4" type="text"
-                               wire:model.live="customer_home_phone">
+                        <input class="border border-gray-500 rounded ml-4 p-1 w-96" type="text"
+                               wire:model.live="customer_home_phone" value="{{$current_customer?->homePhone}}">
                     </label>
                 </div>
                 <div class="flex justify-between py-2">
                     <div>
-                        Mobile phone: {{$current_customer?->mobilePhone}}
+                        Mobile phone:
                     </div>
                     <label>
-                        <input class="border border-gray-500 rounded ml-4" type="text"
-                               wire:model.live="customer_mobile_phone">
+                        <input class="border border-gray-500 rounded ml-4 p-1 w-96" type="text"
+                               wire:model.live="customer_mobile_phone" value="{{$current_customer?->mobilePhone}}">
                     </label>
                 </div>
                 <div class="flex justify-end p-2">
-                    <button wire:click="update_customer" class="bg-gray-200 border border-gray-500 rounded-md p-1 hover:bg-gray-300 focus:bg-gray-400">
+                    <button wire:click="update_customer" @if(!$current_customer) disabled @endif
+                            class="bg-gray-200 border border-gray-500 rounded-md p-1 hover:bg-gray-300 focus:bg-gray-400">
                         Update
                     </button>
                 </div>
+
             </div>
         </div>
     </div>
 </div>
-
-<script>
-
-</script>

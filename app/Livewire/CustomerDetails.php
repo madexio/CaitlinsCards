@@ -12,6 +12,7 @@ class CustomerDetails extends Component
 {
     public ?Customer $current_customer;
     public Collection $customers;
+    public bool $customer_updated = false;
     public string $customer_search_string;
     public string $customer_name = "";
     public string $customer_home_phone = "";
@@ -56,10 +57,11 @@ class CustomerDetails extends Component
 
     public function update_customer(): void
     {
-
+        $this->customer_updated = false;
         if ($this->customer_name !== "") $this->current_customer->name = $this->customer_name;
         if ($this->customer_home_phone !== "") $this->current_customer->homePhone = $this->customer_home_phone;
         if ($this->customer_mobile_phone !== "") $this->current_customer->mobilePhone = $this->customer_mobile_phone;
         $this->current_customer->save();
+        $this->customer_updated = true;
     }
 }
