@@ -13,6 +13,7 @@ class CustomerFactory extends Factory
     {
         return [
             'name'=>$this->faker->name(),
+            'email'=>$this->faker->unique()->safeEmail(),
             'mobilePhone'=>$this->faker->phoneNumber(),
             'homePhone'=>$this->faker->phoneNumber(),
         ];

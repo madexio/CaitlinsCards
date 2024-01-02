@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @property string $name
+ * @property mixed $email
  * @property mixed $homePhone
  * @property mixed $mobilePhone
  */

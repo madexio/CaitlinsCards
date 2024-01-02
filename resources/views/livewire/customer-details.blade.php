@@ -17,11 +17,6 @@
                     </div>
                 @endforeach
             </div>
-            @if($customer_updated)
-                <div class="flex justify-center p-2 text-sm text-green-700">
-                    Customer Updated
-                </div>
-            @endif
             <div class="text-xl mt-4 divide-y-2">
                 <div class="flex justify-between py-2">
                     <div>
@@ -30,11 +25,20 @@
                 </div>
                 <div class="flex justify-between py-2">
                     <div>
-                        Customer name:
+                        Name:
                     </div>
                     <label>
                         <input class="border border-gray-500 rounded ml-4 p-1 w-96" type="text"
                                wire:model.live="customer_name" value="{{$current_customer?->name}}">
+                    </label>
+                </div>
+                <div class="flex justify-between py-2">
+                    <div>
+                        Email:
+                    </div>
+                    <label>
+                        <input class="border border-gray-500 rounded ml-4 p-1 w-96" type="text"
+                               wire:model.live="customer_email" value="{{$current_customer?->email}}">
                     </label>
                 </div>
                 <div class="flex justify-between py-2">
@@ -55,11 +59,25 @@
                                wire:model.live="customer_mobile_phone" value="{{$current_customer?->mobilePhone}}">
                     </label>
                 </div>
-                <div class="flex justify-end p-2">
+                <div class="flex justify-between p-2">
+                    <div>
+                        @if($customer_updated)
+                            <div class="flex justify-center p-2 text-sm text-green-700">
+                                Customer Updated
+                            </div>
+                        @endif
+                        @error('customer_email')
+                        <div class="flex justify-center p-2 text-sm text-red-700">
+                            {{$message}}
+                        </div>
+                        @enderror
+                    </div>
                     <button wire:click="update_customer" @if(!$current_customer) disabled @endif
-                            class="bg-gray-200 border border-gray-500 rounded-md p-1 hover:bg-gray-300 focus:bg-gray-400">
+                    class="bg-gray-200 border border-gray-500 rounded-md p-1 hover:bg-gray-300 focus:bg-gray-400">
                         Update
                     </button>
+
+
                 </div>
 
             </div>
